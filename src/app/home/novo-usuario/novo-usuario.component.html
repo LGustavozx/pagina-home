@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <div class="container">
+    <h4 class="text-center">Cadastro</h4>
+
+    <form [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
+      <div class="form-group">
+        <p class="__titulo">Nome</p>
+        <input
+          class="form-control"
+          placeholder="Digite seu nome"
+          formControlName="userName"
+        />
+        <app-mensagem
+          *ngIf="
+            novoUsuarioForm.get('userName')?.errors &&
+            novoUsuarioForm.get('userName')?.touched
+          "
+          mensagem="Nome incorreto"
+        ></app-mensagem>
+      </div>
+
+      <div class="form-group">
+        <p class="__titulo">E-mail</p>
+        <input
+          class="form-control"
+          placeholder="Email@email"
+          formControlName="email"
+        />
+        <app-mensagem
+          *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] &&
+          novoUsuarioForm.get('email')?.touched
+    "
+          mensagem="Email orbigatorio"
+        ></app-mensagem>
+        <app-mensagem
+          *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] &&
+          novoUsuarioForm.get('email')?.touched"
+          mensagem="email no formato incorreto"
+        >
+        </app-mensagem>
+
+        <app-mensagem
+          *ngIf="novoUsuarioForm.get('userName')?.errors?.['usuarioExistente']"
+          mensagem="Usuario já existe"
+        >
+        </app-mensagem>
+      </div>
+
+      <div class="form-group">
+        <p class="__titulo">Senha</p>
+        <input
+          class="form-control"
+          type="password "
+          placeholder="Senha"
+          formControlName="senha"
+        />
+      </div>
+      <app-mensagem
+        *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']"
+        mensagem="senha deve ser diferente do usuario"
+      >
+      </app-mensagem>
+      <div class="form-group">
+        <p class="__titulo">Confirmar Senha</p>
+        <input
+          class="form-control"
+          type="password"
+          placeholder="Confirmar senha"
+          formControlName="confirmarSenha"
+        />
+      </div>
+
+      <button class="__botao">SIGN IN</button>
+    </form>
+
+    <p><a class="__botao2" [routerLink]="['']">LOGIN</a></p>
+  </div>
+  </body>
+</html>

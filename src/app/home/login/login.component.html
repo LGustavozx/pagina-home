@@ -1,0 +1,34 @@
+<form (ngSubmit)="login()" #loginForm="ngForm">
+  <div class="__email">
+    <h2>Email</h2>
+    <input
+     placeholder="email@email"
+     [(ngModel)]="usuario"
+     name="usuario"
+     #campoUsuario="ngModel"
+     required
+      />
+      <app-mensagem
+      *ngIf="campoUsuario.invalid && campoUsuario.touched"
+      mensagem="Campo email é obrigatorio e tem que ser um email válido"></app-mensagem>
+  </div>
+
+  <div class="__senha">
+    <h2>Senha</h2>
+    <input
+      type="password"
+      placeholder="password"
+      [(ngModel)]="senha"
+      name="senha"
+      #campoSenha="ngModel"
+      required
+    />
+    <app-mensagem
+    *ngIf="campoSenha.invalid && campoSenha.touched" mensagem="Campo senha é obrigatório"
+    ></app-mensagem>
+  </div>
+
+  <button class="__botao" type="submit" [disabled]="loginForm.invalid">LOGIN</button>
+</form>
+
+<button class="__botao2"><a [routerLink]="['novousuario']">SIGN IN</a></button>

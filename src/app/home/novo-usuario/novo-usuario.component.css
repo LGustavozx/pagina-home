@@ -1,0 +1,43 @@
+
+body {
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  background-size: cover;
+}
+
+.text-center {
+  color: white;
+}
+
+.form-control {
+  background-color: white;
+  max-width: 300px;
+  padding: 10px 10px 10px;
+  padding-top: 10x;
+  margin: auto;
+  border-radius: 60px;
+}
+
+.form-group {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  width: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.__titulo {
+  text-align: center;
+  color: white;
+
+}
+
+.container {
+  Background-color: ;
+  Width: 100%;
+  Height: 100%;
+  }
